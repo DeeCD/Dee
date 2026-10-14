@@ -29,9 +29,7 @@ html, body {
 .bg {
     width: 100%;
     height: 100%;
-    background: #ee9ca7;
-    background: -webkit-linear-gradient(top left, #ee9ca7 0%, #ee9ca7 100%);
-    background: linear-gradient(to bottom right, #ee9ca7 0%, #ee9ca7 100%);
+    background: transparent;
 }
 
 .velas {
@@ -39,7 +37,7 @@ html, body {
     border-radius: 10px;
     position: relative;
     top: 247px;
-    margin-left: 49.5%;
+    margin-left: calc(50% - 2.5px);
     width: 5px;
     height: 35px;
     -webkit-transform: translateY(-300px);
@@ -77,8 +75,8 @@ html, body {
     border-radius: 100%;
     position: absolute;
     top: -20px;
-    left: 70%;
-    margin-left: -2.2px;
+    left: 50%;
+    margin-left: -3.3333px;
     width: 6.66666667px;
     height: 18px;
 }
@@ -313,15 +311,19 @@ html, body {
 .happy {
     position: absolute;
     opacity: 0;
-    width: 230px;
-    height: 137px;
-    overflow: hidden;
+    width: 240px;
+    overflow: visible;
     left: 50%;
-    margin-left: -115px;
+    margin-left: -120px;
     top: 30%;
-
-
     animation-delay: 0s;
+}
+
+.happy img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: invert(1) drop-shadow(0 0 14px rgba(233, 189, 143, 0.5));
 }
 
 @keyframes happybirthdays {
@@ -383,15 +385,18 @@ html, body {
 }
 
 .name {
-    font-weight: bold;
+    font-family: "Songti SC", "STSong", "SimSun", "KaiTi", serif;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     position: absolute;
     text-align: center;
     overflow: hidden;
     width: 100%;
     top: -100px;
     opacity: 0;
-    font-size: 32px;
-    color: #fff;
+    font-size: 34px;
+    color: var(--gold-soft);
+    text-shadow: 0 0 30px rgba(233, 189, 143, 0.5);
 }
 
 @keyframes btn1 {
@@ -456,9 +461,12 @@ html, body {
 
 .lk1, .lk2 {
     text-decoration: none;
-    font-family: Microsoft YaHei;
-    color: #fff;
-    transition: all 0.5s;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+    transition: all 0.5s var(--ease-out);
 }
 
 .no-like {
@@ -466,15 +474,18 @@ html, body {
 }
 
 .link1, .link2 {
-    width: 170px;
+    width: 172px;
     height: 60px;
-    border: 2px solid #fff;
-    -webkit-border: 1px solid #fff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 30px;
-    font-size: 23px;
+    font-size: 21px;
+    letter-spacing: 0.1em;
     text-align: center;
-    background: #ee9ca7;
-    transition: all 0.8s;
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    transition: all 0.5s var(--ease-out);
 }
 
 .link2 {
@@ -483,30 +494,54 @@ html, body {
 
 .bt1, .bt2 {
     position: relative;
-    top: 22%;
+    top: 24%;
     vertical-align: middle;
 }
 
 a.lk1:hover {
-    color: #ee9ca7;
+    color: var(--gold-soft);
     transition: all 0.5s;
 }
 
 .link1:hover {
-    background-color: #fff;
-    background-color: rgba(255, 255, 255, 0, 2);
-    border: 2px solid #BBB;
-    transition: all 0.8s;
+    background: rgba(255, 255, 255, 0.16);
+    border-color: var(--gold);
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(214, 154, 99, 0.32);
+    transition: all 0.5s var(--ease-out);
 }
 
 a.lk2:hover {
-    color: #ee9ca7;
+    color: var(--gold-soft);
     transition: all 0.5s;
 }
 
 .link2:hover {
-    background-color: #fff;
-    background-color: rgba(255, 255, 255, 0, 2);
-    border: 2px solid #BBB;
-    transition: all 0.8s;
+    background: rgba(255, 255, 255, 0.16);
+    border-color: var(--gold);
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(214, 154, 99, 0.32);
+    transition: all 0.5s var(--ease-out);
+}
+
+/* 点击"我很喜欢"后，把"你喜欢吗?"替换为"谢谢" */
+.thanks-text {
+    font-size: 34px !important;
+    color: var(--gold-soft);
+    letter-spacing: 0.25em;
+    text-shadow: 0 0 30px rgba(233, 189, 143, 0.6);
+    animation: thanksPop 0.55s var(--ease-out) both;
+}
+
+@keyframes thanksPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
