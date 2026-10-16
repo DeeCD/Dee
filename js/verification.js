@@ -1,7 +1,7 @@
 $('#login-button').click(function (event) {
     let userName = document.getElementById("userName").value;
     let pwd = document.getElementById("pwd").value;
-    if (userName == "郑佳怡" && pwd == "0704") {
+    if (userName == "Dee" && pwd == "1016") {
         $('#h').text("生日快乐！");
         event.preventDefault();
         $('form').fadeOut(500);
